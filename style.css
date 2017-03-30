@@ -41,10 +41,27 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
-.drag-and-drop-area .processing-message {
+.drag-and-drop-area .processing-message,
+.drag-and-drop-area .error-message,
+.drag-and-drop-area .stack-trace,
+.drag-and-drop-area.error .default-message,
+.drag-and-drop-area.error-detailed .default-message,
+.drag-and-drop-area.processing .default-message,
+.drag-and-drop-area.processing .error-message,
+.drag-and-drop-area.processing .error-details-button,
+.drag-and-drop-area.error-detailed .error-details-button {
   display: none;
+}
+
+.drag-and-drop-area.processing .processing-message,
+.drag-and-drop-area.error .error-message,
+.drag-and-drop-area.error-detailed .error-message,
+.drag-and-drop-area.error-detailed .stack-trace {
+  display: block;
 }
 
 .drag-and-drop-area.dragging {
@@ -56,16 +73,23 @@ h1 {
   pointer-events: none;
 }
 
-.drag-and-drop-area.processing .processing-message {
-  display: block;
-}
-
-.drag-and-drop-area.processing .default-message {
-  display: none;
-}
-
 .drag-and-drop-area p {
   margin-top: 1.5rem;
   color: #555;
   font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.drag-and-drop-area .error-details-button {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.drag-and-drop-area .stack-trace {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
+  line-height: 1.1rem;
+  text-align: left;
 }
