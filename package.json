@@ -18,6 +18,11 @@
   "license": "CC0-1.0",
   "dependencies": {
     "electron": "1.6.2",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "xlsx": "0.9.7"
   }
 }
