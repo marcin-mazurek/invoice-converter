@@ -1,5 +1,6 @@
-module.exports = function() {
-  document.ondragover = document.ondrop = (event) => {
-    event.preventDefault();
-  };
-}
+const preventDefault = event => event.preventDefault();
+
+module.exports = function () {
+  document.addEventListener('dragover', preventDefault);
+  document.addEventListener('drop', preventDefault);
+};

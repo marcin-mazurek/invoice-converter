@@ -1,5 +1,10 @@
 const ParsingError = require('./parsing-error');
 
+function getCellValue(sheet, column, row) {
+  const cell = sheet[column + row];
+  return cell ? cell.v : undefined;
+}
+
 function getFirstSheet(file) {
   const firstSheetName = file.SheetNames[0];
   if (!firstSheetName) {
@@ -16,24 +21,15 @@ function getFirstSheet(file) {
 
 function locateFirstRow(sheet) {
   for (let i = 10; i < 100; i++) {
-    const cell = sheet['A' + i];
-    const underneathCell = sheet['A' + (i + 1)];
+    const cellValue = getCellValue(sheet, 'A', i);
+    const underneathCellValue = getCellValue(sheet, 'A', i + 1);
 
-    if (!cell || !underneathCell) {
-      continue;
-    }
-
-    if (cell.v == 1 && underneathCell.v == 2) {
+    if (cellValue == 1 && underneathCellValue == 2) {
       return i;
     }
   }
 
   throw new ParsingError('Could not locate the first row in the first sheet');
-}
-
-function getCellValue(sheet, column, row) {
-  const cell = sheet[column + row];
-  return cell ? cell.v : undefined;
 }
 
 module.exports = function (file) {

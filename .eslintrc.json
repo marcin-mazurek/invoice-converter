@@ -1,3 +1,16 @@
 {
-  "extends": "airbnb"
+  "extends": "airbnb",
+  "rules": {
+    "func-names": "off",
+    "no-plusplus": "off",
+    "eqeqeq": "off",
+    "arrow-parens": "off"
+  },
+  "ignore": [
+    "node_modules/**/*.*"
+  ],
+  "env": {
+    "node": true,
+    "browser": true
+  }
 }
