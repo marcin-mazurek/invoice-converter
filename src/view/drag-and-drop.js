@@ -1,4 +1,5 @@
-const handleFileUpload = require('./handle-file-upload');
+const handleFileUpload = require('../files/handle-file-upload');
+const saveFile = require('../files/save-file');
 const parseFile = require('../parser/parse-file');
 const convertToXml = require('../parser/convert-to-xml');
 
@@ -23,9 +24,9 @@ class DragAndDrop {
       .then(file => {
         const invoice = parseFile(file);
         const xml = convertToXml(invoice);
-        console.log(xml);
-        this._setState('normal');
+        return saveFile(xml);
       })
+      .then(() => this._setState('normal'))
       .catch(error => {
         this._setState('error');
         this._setError(error);
