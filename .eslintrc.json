@@ -4,7 +4,10 @@
     "func-names": "off",
     "no-plusplus": "off",
     "eqeqeq": "off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "comma-dangle": "off",
+    "no-else-return": "off",
+    "no-underscore-dangle": "off"
   },
   "ignore": [
     "node_modules/**/*.*"

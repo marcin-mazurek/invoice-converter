@@ -1,9 +1,9 @@
-const DragAndDrop = require('./drag-and-drop');
-const preventPageChangeOnFileDrop = require('./prevent-page-change-on-file-drop');
+const initializeDragAndDrop = require('./view/drag-and-drop');
+const preventPageChangeOnFileDrop = require('./view/prevent-page-change-on-file-drop');
 
 function runApplication() {
   preventPageChangeOnFileDrop();
-  const dragAndDrop = new DragAndDrop(document.getElementById('dragAndDropArea'));
+  initializeDragAndDrop(document.getElementById('dragAndDropArea'));
 }
 
 runApplication();
