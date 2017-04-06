@@ -46,9 +46,14 @@ module.exports = function (file) {
 
     const getCellValueForColumn = column => getCellValue(firstSheet, column, i);
 
+    const customsCode = String(getCellValueForColumn('F'));
+    const cnCode = customsCode.slice(0, customsCode.length - 2);
+    const taricCode = customsCode.slice(customsCode.length - 2, customsCode.length);
+
     rowData.push({
       name: getCellValueForColumn('B'),
-      customsCode: getCellValueForColumn('F'),
+      cnCode,
+      taricCode,
       quantity: getCellValueForColumn('I'),
       priceAfterRebate: getCellValueForColumn('N'),
       weightNet: getCellValueForColumn('Q'),

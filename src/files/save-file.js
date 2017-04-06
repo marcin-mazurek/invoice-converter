@@ -22,19 +22,21 @@ function generateFileName() {
 
 module.exports = function (content) {
   return new Promise((resolve, reject) => {
-    app.dialog.showSaveDialog({ defaultPath: generateFileName() }, fileName => {
-      if (fileName === undefined) {
-        resolve();
-        return;
-      }
-
-      fs.writeFile(fileName, content, err => {
-        if (err) {
-          reject(err);
-        } else {
+    app.dialog.showSaveDialog({ defaultPath: generateFileName() },
+      fileName => {
+        if (fileName === undefined) {
           resolve();
+          return;
         }
-      });
-    });
+
+        fs.writeFile(fileName, content, err => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
+      }
+    );
   });
 };

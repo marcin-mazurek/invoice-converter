@@ -8,15 +8,18 @@ module.exports = function (invoice) {
   invoice.forEach((item, index) => {
     children.push(tag('TowaryFakt', {
       NrPozNaFakt: index + 1,
-      KodCNTow: item.customsCode,
+      KodCNTow: item.cnCode,
+      KodTaricTow: item.taricCode,
       NazwaPolska: item.name,
       IloscTow: item.quantity,
-      LiczbaOpakTow: item.quantity,
-      JednMiary: 'szt.', // ???
+      IloscUzupTow: item.quantity,
+      LiczbaOpakTow: '0',
+      JednUzup: 'szt.',
+      JednMiary: 'szt.',
       WartoscTow: item.priceAfterRebate,
       MasaNettoTow: item.weightNet,
       MasaBruttoTow: item.weightGross,
-      RodzajOpakTow: 'PA', // ???
+      RodzajOpakTow: 'PA',
       ZnakiOpakTow: 'B/Z'
     }));
   });
